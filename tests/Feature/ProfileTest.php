@@ -29,4 +29,11 @@ class ProfileTest extends TestCase
 
         $response->assertRedirect('/profile');
     }
+
+    // Se verifica que el campo de la foto sea requerido.
+    public function test_photo_required(): void
+    {
+        $response = $this->post('profile', ['photo' => '']);
+        $response->assertSessionHasErrors('photo');
+    }
 }

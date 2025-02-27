@@ -12,6 +12,7 @@ Route::get('about', function () {
 
 Route::view('profile', 'profile');
 
+// Se crea una ruta para subir archivos desde un formulario
 Route::post('profile', function (Illuminate\Http\Request $request) {
     $request->file('photo')->store('profiles');
     return redirect('profile');
